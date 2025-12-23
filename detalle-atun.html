@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Atún en Aceite | Family</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <header><div class="logo">
+    <h1 class="logo-texto">FAMILY <span>SUPERMARKET</span></h1>
+</div><nav><a href="index.html">← Volver</a></nav></header>
+    <main>
+        <section class="contenedor-detalle">
+            <div class="caja-blanca-detalle">
+                <div class="imagen-producto"><img src="img/atun.jpg" alt="Atún"></div>
+                <div class="info-producto">
+                    <h1>Atún Claro en Aceite Vegetal</h1>
+                    <p class="valoracion">⭐ ⭐ ⭐ ⭐ ⭐ (210 opiniones)</p>
+                    <p class="disponibilidad">✅ En stock</p>
+                    <p class="precio" id="precio-dinamico">3.95€</p>
+                    <p class="descripcion">Pack de 3 latas de atún claro de alta calidad, conservado en aceite vegetal para mantener su jugosidad y sabor natural. Fuente de proteínas y Omega 3.</p>
+                    <div class="selector-cantidad">
+                        <label>Cantidad:</label>
+                        <select id="cantidad-prod" onchange="actualizarPrecio(3.95)">
+                            <option value="1">Pack x3</option>
+                            <option value="2">Pack x6</option>
+                        </select>
+                    </div>
+                    <button class="btn-añadir">Añadir al carro</button>
+                </div>
+            </div>
+        </section>
+    </main>
+    <script>
+        function actualizarPrecio(base) {
+            const cant = document.getElementById('cantidad-prod').value;
+            document.getElementById('precio-dinamico').innerText = (base * cant).toFixed(2) + "€";
+        }
+    </script>
+    <div class="asistente-contenedor">
+    <div class="tomate-asistente">
+        <div class="globo-texto">¡El favorito de la despensa! Rico en Omega-3 y súper práctico. 🐟</div>
+        
+        <div class="tomate-cuerpo">
+            <div class="hojas">
+                <span class="hoja-1"></span>
+                <span class="hoja-2"></span>
+                <span class="hoja-3"></span>
+            </div>
+            <div class="cara">
+                <div class="ojos">
+                    <span class="ojo"></span>
+                    <span class="ojo"></span>
+                </div>
+                <div class="boca-tomate"></div>
+            </div>
+            <div class="brillo"></div>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

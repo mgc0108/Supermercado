@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Huevos Clase L | Family</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <header><div class="logo">
+    <h1 class="logo-texto">FAMILY <span>SUPERMARKET</span></h1>
+</div><nav><a href="index.html">← Volver</a></nav></header>
+    <main>
+        <section class="contenedor-detalle">
+            <div class="caja-blanca-detalle">
+                <div class="imagen-producto"><img src="img/huevos.jpg" alt="Huevos"></div>
+                <div class="info-producto">
+                    <h1>Huevos Frescos Clase L</h1>
+                    <p class="valoracion">⭐ ⭐ ⭐ ⭐ ⭐ (92 opiniones)</p>
+                    <p class="disponibilidad">✅ En stock</p>
+                    <p class="precio" id="precio-dinamico">2.50€</p>
+                    <p class="descripcion">Huevos frescos de categoría A, procedentes de gallinas criadas en suelo. Estuche de 12 unidades tamaño grande, ideales para repostería y cocina diaria.</p>
+                    <div class="selector-cantidad">
+                        <label>Cantidad:</label>
+                        <select id="cantidad-prod" onchange="actualizarPrecio(2.50)">
+                            <option value="1">1 docena</option>
+                            <option value="2">2 docenas</option>
+                        </select>
+                    </div>
+                    <button class="btn-añadir">Añadir al carro</button>
+                </div>
+            </div>
+        </section>
+    </main>
+    <script>
+        function actualizarPrecio(base) {
+            const cant = document.getElementById('cantidad-prod').value;
+            document.getElementById('precio-dinamico').innerText = (base * cant).toFixed(2) + "€";
+        }
+    </script>
+    <div class="asistente-contenedor">
+    <div class="tomate-asistente">
+        <div class="globo-texto">¡De gallinas felices, perfectos para una tortilla! 🍳</div>
+        
+        <div class="tomate-cuerpo">
+            <div class="hojas">
+                <span class="hoja-1"></span>
+                <span class="hoja-2"></span>
+                <span class="hoja-3"></span>
+            </div>
+            <div class="cara">
+                <div class="ojos">
+                    <span class="ojo"></span>
+                    <span class="ojo"></span>
+                </div>
+                <div class="boca-tomate"></div>
+            </div>
+            <div class="brillo"></div>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

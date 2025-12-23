@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detalle: Yogur Bífidus Proteínas</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <header>
+        <div class="logo">
+    <h1 class="logo-texto">FAMILY <span>SUPERMARKET</span></h1>
+</div>
+        <nav><a href="index.html">← Volver al Inicio</a></nav>
+    </header>
+
+    <main>
+        <section class="contenedor-detalle">
+            <div class="caja-blanca-detalle">
+                <div class="imagen-producto">
+                    <img src="img/yogur-proteico.jpg" alt="Yogur Bífidus">
+                </div>
+                <div class="info-producto">
+                    <span class="badge">Novedad</span>
+                    <h1>Yogur Bífidus Proteínas</h1>
+                    <p class="valoracion">⭐ ⭐ ⭐ ⭐ ⭐ (120 valoraciones)</p>
+                    <p class="disponibilidad">Estado: ✅ En stock</p>
+                    
+                    <p class="precio" id="precio-dinamico">1.45€</p>
+                    
+                    <p class="descripcion">
+                        Nueva receta mejorada con 20g de proteína por envase. Sin azúcares añadidos y bajo en grasas. Ideal para deportistas y meriendas saludables.
+                    </p>
+
+                    <div class="selector-cantidad">
+                        <label>Selecciona cantidad:</label>
+                        <select id="cantidad-prod" onchange="actualizarPrecio(1.45)">
+                            <option value="1">1 Pack</option>
+                            <option value="2">2 Packs</option>
+                            <option value="3">3 Packs</option>
+                        </select>
+                    </div>
+                    <button class="btn-añadir">Añadir al carro</button>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script>
+        function actualizarPrecio(base) {
+            const cant = document.getElementById('cantidad-prod').value;
+            document.getElementById('precio-dinamico').innerText = (base * cant).toFixed(2) + "€";
+        }
+    </script>
+    <div class="asistente-contenedor">
+    <div class="tomate-asistente">
+        <div class="globo-texto">¡Energía pura! Con extra de proteína para aguantar todo el día. 💪🥛</div>
+        
+        <div class="tomate-cuerpo">
+            <div class="hojas">
+                <span class="hoja-1"></span>
+                <span class="hoja-2"></span>
+                <span class="hoja-3"></span>
+            </div>
+            <div class="cara">
+                <div class="ojos">
+                    <span class="ojo"></span>
+                    <span class="ojo"></span>
+                </div>
+                <div class="boca-tomate"></div>
+            </div>
+            <div class="brillo"></div>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

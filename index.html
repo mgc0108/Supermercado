@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Family Supermarket | Tu Compra Online</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+    <header class="banner-principal">
+    <div class="contenedor-banner">
+        <div class="logo-seccion">
+            <h1 class="logo-texto">FAMILY <span>SUPERMARKET</span></h1>
+        </div>
+
+        <div class="buscador-seccion">
+            <input type="text" placeholder="Busca productos, categorías..." id="input-busqueda">
+            <button type="button" class="btn-buscar">🔍</button>
+        </div>
+
+        <div class="usuario-seccion">
+            <a href="login.html" class="enlace-header">Mi Cuenta</a>
+            <a href="carrito.html" class="btn-carrito-header">
+                🛒 Carrito <span id="contador-carrito">(3)</span>
+            </a>
+        </div>
+    </div>
+</header>
+
+    <main>
+        <h2 class="section-title">Ofertas y Recomendados</h2>
+        <section class="destacados-container">
+            
+            <div class="card-destacada novedad">
+                <div class="badge">Novedad</div>
+                <a href="detalle-novedad.html">
+                    <img src="img/yogur-proteico.jpg" alt="Yogur Proteico">
+                    <div class="destacado-info">
+                        <h3>Yogur de Proteínas</h3>
+                        <p>Pack 4 x 125g - 20g Proteína</p>
+                        <div class="precio">1,45€</div>
+                    </div>
+                </a>
+                <button class="btn-añadir">Añadir al carro</button>
+            </div>
+
+            <div class="card-destacada oferta">
+                <div class="badge-oferta">Oferta</div>
+                <a href="detalle-oferta.html">
+                    <img src="img/aceite-oliva.jpg" alt="Aceite de Oliva">
+                    <div class="destacado-info">
+                        <h3>Aceite de Oliva Virgen Extra</h3>
+                        <p>Garrafa 5L - Cosecha Seleccionada</p>
+                        <div class="precio-anterior">45,00€</div>
+                        <div class="precio oferta-color">38,50€</div>
+                    </div>
+                </a>
+                <button class="btn-añadir">Añadir al carro</button>
+            </div>
+        </section>
+
+        <hr class="separador">
+
+        <h2 class="section-title">Frutas y Frescos</h2>
+        <div class="grid-container">
+            <div class="producto-card">
+                <a href="detalle-manzanas.html">
+                    <img src="img/manzanas.jpg" alt="Manzanas">
+                    <h4>Manzanas Royal Gala</h4>
+                    <p class="formato">Bolsa 1kg</p>
+                    <div class="precio">2,99€</div>
+                </a>
+                <button class="btn-añadir">Añadir</button>
+            </div>
+
+            <div class="producto-card">
+                <a href="detalle-aguacate.html">
+                    <img src="img/aguacate.jpg" alt="Aguacate">
+                    <h4>Aguacate Hass</h4>
+                    <p class="formato">Malla 2 uds</p>
+                    <div class="precio">3,20€</div>
+                </a>
+                <button class="btn-añadir">Añadir</button>
+            </div>
+
+            <div class="producto-card">
+                <a href="detalle-pollo.html">
+                    <img src="img/pollo.jpg" alt="Pollo">
+                    <h4>Muslos de Pollo</h4>
+                    <p class="formato">Bandeja 600g</p>
+                    <div class="precio">6,40€</div>
+                </a>
+                <button class="btn-añadir">Añadir</button>
+            </div>
+
+            <div class="producto-card">
+                <a href="detalle-huevos.html">
+                    <img src="img/huevos.jpg" alt="Huevos">
+                    <h4>Huevos Clase L</h4>
+                    <p class="formato">Estuche 12 uds</p>
+                    <div class="precio">2,50€</div>
+                </a>
+                <button class="btn-añadir">Añadir</button>
+            </div>
+        </div>
+
+        <h2 class="section-title" style="margin-top:40px;">Despensa</h2>
+        <div class="grid-container">
+            <div class="producto-card">
+                <a href="detalle-arroz.html">
+                    <img src="img/arroz.jpg" alt="Arroz">
+                    <h4>Arroz Redondo</h4>
+                    <p class="formato">Paquete 1kg</p>
+                    <div class="precio">1,25€</div>
+                </a>
+                <button class="btn-añadir">Añadir</button>
+            </div>
+
+            <div class="producto-card">
+                <a href="detalle-pasta.html">
+                    <img src="img/pasta.jpg" alt="Pasta">
+                    <h4>Macarrones Pluma</h4>
+                    <p class="formato">Paquete 500g</p>
+                    <div class="precio">0,85€</div>
+                </a>
+                <button class="btn-añadir">Añadir</button>
+            </div>
+
+            <div class="producto-card">
+                <a href="detalle-leche.html">
+                    <img src="img/leche.jpg" alt="Leche">
+                    <h4>Leche Entera UHT</h4>
+                    <p class="formato">Brik 1L</p>
+                    <div class="precio">0,95€</div>
+                </a>
+                <button class="btn-añadir">Añadir</button>
+            </div>
+
+            <div class="producto-card">
+                <a href="detalle-atun.html">
+                    <img src="img/atun.jpg" alt="Atún">
+                    <h4>Atún en Aceite</h4>
+                    <p class="formato">Pack 3 latas</p>
+                    <div class="precio">3,95€</div>
+                </a>
+                <button class="btn-añadir">Añadir</button>
+            </div>
+
+            <div class="producto-card">
+                <a href="detalle-agua.html">
+                    <img src="img/agua.jpg" alt="Agua">
+                    <h4>Agua Mineral</h4>
+                    <p class="formato">Pack 6 x 1.5L</p>
+                    <div class="precio">3,15€</div>
+                </a>
+                <button class="btn-añadir">Añadir</button>
+            </div>
+        </div>
+
+        <h2 class="section-title" style="margin-top:40px;">Limpieza</h2>
+        <div class="grid-container">
+            <div class="producto-card">
+                <a href="detalle-detergente.html">
+                    <img src="img/detergente.jpg" alt="Detergente">
+                    <h4>Detergente Gel</h4>
+                    <p class="formato">Botella 30 lavados</p>
+                    <div class="precio">7,50€</div>
+                </a>
+                <button class="btn-añadir">Añadir</button>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Family Supermarket - Todos los derechos reservados</p>
+    </footer>
+<div class="asistente-contenedor">
+    <div class="tomate-asistente">
+    <div class="globo-texto">¡Hola! Soy Tomatín, tu asistente virtual ¿Puedo ayudarte?</div>
+    <div class="tomate-cuerpo">
+        <div class="hojas">
+            <span class="hoja-1"></span>
+            <span class="hoja-2"></span>
+            <span class="hoja-3"></span>
+        </div>
+        <div class="cara">
+            <div class="ojos">
+                <span class="ojo"></span>
+                <span class="ojo"></span>
+            </div>
+            <div class="boca-tomate"></div>
+        </div>
+        <div class="brillo"></div>
+    </div>
+</div>
+</body>
+</html>

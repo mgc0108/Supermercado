@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Acceso Clientes | Family Supermarket</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/styles.css">
+    <style>
+        /* Estilos específicos para el login */
+        .cuerpo-login {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 80vh;
+        }
+        .caja-login {
+            background: white;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+            width: 100%;
+            max-width: 400px;
+            text-align: center;
+        }
+        .caja-login h2 {
+            margin-bottom: 25px;
+            color: #333;
+        }
+        .grupo-input {
+            margin-bottom: 20px;
+            text-align: left;
+        }
+        .grupo-input label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: bold;
+            color: #555;
+        }
+        .grupo-input input {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            box-sizing: border-box; /* Evita que el input se salga del cuadro */
+        }
+        .btn-entrar {
+            width: 100%;
+            background: var(--verde-mercadona, #008d45);
+            color: white;
+            border: none;
+            padding: 14px;
+            border-radius: 5px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+        .btn-entrar:hover {
+            background: #00a550;
+        }
+        .enlaces-extra {
+            margin-top: 20px;
+            font-size: 14px;
+        }
+        .enlaces-extra a {
+            color: #008d45;
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1 class="logo-texto">FAMILY <span>SUPERMARKET</span></h1>
+        <nav><a href="index.html">Volver al inicio</a></nav>
+    </header>
+
+    <main class="cuerpo-login">
+        <div class="caja-login">
+            <h2>Acceso Clientes</h2>
+            <form action="#">
+                <div class="grupo-input">
+                    <label>Correo electrónico</label>
+                    <input type="email" placeholder="ejemplo@correo.com" required>
+                </div>
+                <div class="grupo-input">
+                    <label>Contraseña</label>
+                    <input type="password" placeholder="Tu contraseña" required>
+                </div>
+                <button type="submit" class="btn-entrar">Iniciar Sesión</button>
+            </form>
+            <div class="enlaces-extra">
+                <p><a href="#">¿Has olvidado tu contraseña?</a></p>
+                <p>¿No tienes cuenta? <a href="#">Regístrate aquí</a></p>
+            </div>
+        </div>
+        <div class="asistente-contenedor">
+    <div class="tomate-asistente">
+        <div class="globo-texto">¡Identifícate para tus ofertas! 🔑</div>
+        <div class="tomate-cuerpo">
+            <div class="hojas">
+                <span class="hoja-1"></span>
+                <span class="hoja-2"></span>
+                <span class="hoja-3"></span>
+            </div>
+            <div class="cara">
+                <div class="ojos">
+                    <span class="ojo"></span>
+                    <span class="ojo"></span>
+                </div>
+                <div class="boca-tomate"></div>
+            </div>
+            <div class="brillo"></div>
+        </div>
+    </div>
+</div>
+    </main>
+    </body>
+</html>

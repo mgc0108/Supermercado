@@ -1,0 +1,717 @@
+/*VARIABLES Y CONFIGURACIÓN*/
+:root { /*Definición de la paleta de colores y estilos globales para asegurar la coherencia visual en toda la plataforma*/
+    --verde-mercadona: #008a4b;
+    --verde-principal: #008d45;
+    --verde-hover: #00703d;
+    --rojo-oferta: #e63946;
+    --gris-fondo: #f2f2f2;
+    --texto-oscuro: #333333;
+    --blanco: #ffffff;
+    --sombra: 0 4px 12px rgba(0,0,0,0.1);
+    --amarillo-logo: #ffcc00;
+}
+/*Reseteo global:elimina márgenes por defecto y asegura que el cálculo de tamaños sea exacto*/
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: var(--gris-fondo);
+    color: var(--texto-oscuro);
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+/*HEADER Y NAVEGACIÓN*/
+header,
+.banner-principal {
+    background-color: var(--verde-principal) !important;
+    padding: 15px 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: sticky; /*Mantiene el buscador siempre a la vista al hacer scroll*/
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+    width: 100%;
+}
+
+.contenedor-banner {
+    max-width: 1200px;
+    width: 100%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 50px;
+}
+
+.logo-texto {
+    font-size: 28px;
+    font-weight: 900;
+    margin: 0;
+    color: white !important;
+    text-transform: uppercase;
+    flex-shrink: 0;
+    text-decoration: none !important;
+}
+
+.logo-texto span {
+    color: var(--amarillo-logo);
+    font-weight: bold;
+}
+
+.buscador-seccion {
+    display: flex;
+    flex: 1;
+    max-width: 550px;
+    margin: 0 40px;
+}
+
+#input-busqueda {
+    width: 100%;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 25px 0 0 25px;
+    font-size: 16px;
+    outline: none;
+}
+
+.btn-buscar {
+    background-color: var(--amarillo-logo);
+    border: none;
+    padding: 0 20px;
+    border-radius: 0 25px 25px 0;
+    cursor: pointer;
+    font-size: 18px;
+}
+
+.usuario-seccion {
+    display: flex;
+    align-items: center;
+    gap: 25px;
+    white-space: nowrap;
+    flex-shrink: 0;
+}
+/*nombres clicables dentro de la sección usuario*/
+.usuario-seccion a {
+    color: white !important;
+    text-decoration: none !important;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+/*diseño de botones de inicio y navrgación*/
+header a[href*="index"],
+.banner-principal a[href*="index"],
+.seguir-comprando {
+    margin-left: 100px;
+    color: var(--amarillo-logo) !important;
+    text-decoration: none !important;
+    font-weight: bold;
+    font-size: 13px;
+    padding: 8px 20px;
+    border: 2px solid var(--amarillo-logo);
+    border-radius: 30px;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    transition: all 0.3s ease;
+    background-color: transparent;
+    text-transform: uppercase;
+    white-space: nowrap;
+}
+
+/*CUERPO PRINCIPAL (donde están todos los productos)*/
+main {
+    flex-grow: 1;
+    padding: 40px 5%;
+}
+/*estilo para los títulos de sección (ofertas y recomendados, frutas y frescos, despensa, limpieza)*/
+.section-title {
+    margin-bottom: 25px;
+    font-size: 26px;
+    border-left: 5px solid var(--verde-mercadona);
+    padding-left: 15px;
+}
+/*línea gris fina para separar los destacados de los genericos*/
+.separador {
+    border: 0;
+    height: 1px;
+    background: #ccc;
+    margin: 40px 0;
+}
+
+/*SECCIÓN PRODUCTOS DESTACADOS*/
+/*organiza el contenedor de destacados en dos columnas*/
+.destacados-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /*división del espacio en dos partes iguales*/
+    gap: 25px; /*espacio entre tarjetas*/
+    margin-bottom: 40px;
+}
+/*tarjeta de oferta*/
+.card-destacada {
+    background: linear-gradient(135deg, #ffffff 0%, #fffdf5 100%) !important;
+    border-radius: 15px;
+    padding: 20px;
+    position: relative;
+    border: 1px solid #f0e6c8;
+    border-left: 8px solid var(--verde-mercadona) !important;
+    
+    display: flex !important;
+    flex-direction: row !important;
+    align-items: center !important;
+    
+    min-height: 190px;
+    height: auto !important;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+}
+/*pegatinas de oferta y novedad*/
+.badge, .badge-oferta {
+    position: absolute;
+    top: -12px;
+    left: 15px;
+    padding: 8px 16px;
+    font-family: 'Roboto', sans-serif !important;
+    font-size: 11px;
+    font-weight: 900;
+    text-transform: uppercase;
+    z-index: 10;
+    box-shadow: 3px 4px 10px rgba(0,0,0,0.2);
+    transform: rotate(-4deg);
+    border-radius: 3px;
+}
+/*colores pegatinas*/
+.badge {
+    background-color: #ffcc00 !important; /*amarillo para novedad*/
+    color: #333 !important; /*color letras*/
+}
+.badge-oferta {
+    background-color: var(--rojo-oferta) !important; /*rojo para oferta*/
+    color: white !important; /*color letras*/
+}
+
+/*estilos de los precios destacados*/
+.precio-anterior { /*tacha el precio viejo*/
+    font-family: 'Roboto', sans-serif !important;
+    color: #999 !important;
+    font-size: 16px !important;
+    text-decoration: line-through !important;
+    margin-bottom: 2px;
+}
+
+.precio.oferta-color { /*letras del precio nuevo en rojo llamativo*/
+    font-family: 'Roboto', sans-serif !important;
+    color: var(--rojo-oferta) !important;
+    font-size: 26px !important;
+    font-weight: 900 !important;
+}
+
+/*une la imagen y el texto dentro de la oferta*/
+.card-destacada a {
+    display: flex !important;
+    flex-direction: row !important;
+    align-items: center !important;
+    text-decoration: none !important;
+    flex: 1;
+}
+
+/*imagen del producto destacado*/
+.card-destacada img {
+    width: 140px;
+    height: 140px;
+    object-fit: contain;
+    margin-right: 25px;
+    flex-shrink: 0;
+}
+
+/*contenedor para el nombre y la descripción*/
+.destacado-info {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+/*titulo del producto*/
+.destacado-info h3 {
+    font-family: 'Roboto', sans-serif !important;
+    color: #333 !important;
+    font-size: 19px !important;
+    font-weight: 700 !important;
+    margin: 0 0 5px 0 !important;
+}
+
+/*detalles del producto*/
+.destacado-info p {
+    font-family: 'Roboto', sans-serif !important;
+    color: #666 !important;
+    font-size: 14px !important;
+    margin-bottom: 10px !important;
+}
+
+/*boton de compra dentro de la oferta*/
+.card-destacada .btn-añadir {
+    margin-left: 15px;
+    padding: 12px 20px;
+    font-size: 14px;
+    border-radius: 8px;
+    white-space: nowrap;
+}
+/*GRID DE 5 COLUMNAS*/
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 20px;
+}
+/*estilo de las tarjetas del resto de productos*/
+.producto-card {
+    background: var(--blanco);
+    border-radius: 10px;
+    padding: 20px;
+    border: 1px solid #ddd;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    transition: 0.3s;
+}
+
+.producto-card img {
+    width: 100%;
+    height: 140px;
+    object-fit: contain;
+    margin-bottom: 15px;
+}
+
+.precio {
+    font-size: 22px;
+    font-weight: bold;
+    margin: 10px 0;
+    color: #000000;
+}
+
+.btn-añadir {
+    background-color: var(--verde-mercadona);
+    color: white;
+    border: none;
+    padding: 12px;
+    border-radius: 6px;
+    font-weight: bold;
+    cursor: pointer;
+    margin-top: auto;
+}
+
+/*PÁGINA DE DETALLE Y CARRITO*/
+.contenedor-detalle {
+    display: flex;
+    justify-content: center;
+    padding: 40px 5%;
+}
+
+.caja-blanca-detalle {
+    background: white;
+    display: flex;
+    gap: 50px;
+    padding: 40px;
+    border-radius: 15px;
+    max-width: 900px;
+    width: 100%;
+    box-shadow: var(--sombra);
+}
+
+.imagen-producto img {
+    max-width: 350px;
+    width: 100%;
+    height: auto;
+}
+
+/*diseño asistente vistual*/
+.tomate-asistente {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    z-index: 1000;
+}
+
+.tomate-cuerpo {
+    width: 70px;
+    height: 65px;
+    background: radial-gradient(circle at 35% 35%, #ff4d4d, #b30000);
+    border-radius: 50% 50% 45% 45%;
+    position: relative;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+    animation: saltito 2s ease-in-out infinite;
+}
+
+.tomate-cuerpo::before {
+    content: '';
+    position: absolute;
+    top: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 30px;
+    height: 18px;
+    background: #2dcc70;
+    clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%); /*Crea la forma de hoja del tomate mediante coordenadas*/
+}
+
+.tomate-cuerpo::after {
+    content: '';
+    position: absolute;
+    top: 8px;
+    left: 15px;
+    width: 12px;
+    height: 8px;
+    background: rgba(255,255,255,0.4);
+    border-radius: 50%;
+    transform: rotate(-20deg);
+}
+
+.cara {
+    position: relative;
+    top: 25px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.ojos {
+    display: flex;
+    gap: 15px;
+}
+
+.ojo {
+    width: 8px;
+    height: 8px;
+    background: #2c3e50;
+    border-radius: 50%;
+}
+
+.boca-tomate {
+    width: 16px;
+    height: 8px;
+    border-bottom: 3px solid #2c3e50;
+    border-radius: 0 0 10px 10px;
+    margin-top: 5px;
+}
+
+.globo-texto {
+    background: #333;
+    color: white;
+    padding: 10px 15px;
+    border-radius: 15px;
+    font-size: 13px;
+    font-weight: bold;
+    margin-bottom: 12px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    position: relative;
+    text-align: center;
+    width: 160px;
+    animation: aparecer 0.5s ease-out;
+}
+
+.globo-texto::after {
+    content: '';
+    position: absolute;
+    bottom: -8px;
+    right: 30px;
+    border-left: 8px solid transparent;
+    border-right: 8px solid transparent;
+    border-top: 8px solid #333;
+}
+/*animación del tomate*/
+@keyframes aparecer {
+    from { opacity: 0; transform: scale(0.8); }
+    to { opacity: 1; transform: scale(1); }
+}
+@keyframes saltito {
+    0%, 100% { transform: translateY(0) scale(1); }
+    50% { transform: translateY(-12px) scale(1.02); }
+}
+
+/*VENTANAS EMERGENTES(MODAL) Y TRAMITAR*/
+.modal-personalizado {
+    display: none;
+    position: fixed;
+    z-index: 2000;
+    left: 0; top: 0; width: 100%; height: 100%;
+    background-color: rgba(0,0,0,0.6);
+    backdrop-filter: blur(5px); /*Desenfoca el fondo para centrar la atención en el mensaje*/
+}
+
+.modal-contenido {
+    background-color: white;
+    margin: 15% auto;
+    padding: 30px;
+    border-radius: 15px;
+    max-width: 400px;
+    text-align: center;
+}
+
+.btn-tramitar,
+#boton-finalizar-compra {
+    background-color: #008a4b !important;
+    color: white !important;
+    width: 100%;
+    padding: 16px 20px;
+    border: none;
+    border-radius: 30px;
+    font-size: 18px;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 0 4px 15px rgba(0, 138, 75, 0.3);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    margin-top: 15px;
+}
+
+.btn-tramitar:hover,
+#boton-finalizar-compra:hover {
+    background-color: #00a358 !important;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0, 138, 75, 0.4);
+}
+
+.btn-tramitar:active,
+#boton-finalizar-compra:active {
+    transform: translateY(1px);
+    box-shadow: 0 2px 10px rgba(0, 138, 75, 0.2);
+}
+
+.btn-tramitar::after {
+    font-size: 20px;
+    transition: transform 0.3s;
+}
+
+.btn-tramitar:hover::after {
+    transform: translateX(5px);
+}
+
+.seguir-comprando, .seguir-comprando:visited {
+    color: #ffffff !important;
+    text-decoration: none !important;
+    font-weight: bold;
+    font-size: 18px;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+}
+
+div[style*="background: white"] button,
+div[style*="background-color: white"] button,
+.modal-contenido button {
+    background-color: #008a4b !important;
+    color: white !important;
+    border: none !important;
+    padding: 12px 35px !important;
+    border-radius: 30px !important;
+    font-size: 16px !important;
+    font-weight: 700 !important;
+    text-transform: uppercase !important;
+    cursor: pointer !important;
+    margin-top: 20px !important;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.15) !important;
+    display: inline-block !important;
+    transition: all 0.3s ease !important;
+}
+
+div[style*="background-color: white"] button:hover,
+.modal-contenido button:hover {
+    background-color: #00a358 !important;
+    transform: scale(1.05) !important;
+}
+
+/*AJUSTES PARA MÓVILES*/
+@media screen and (max-width: 768px) {
+    
+    /*Ajustes de pantalla y evitar scroll lateral*/
+    html, body {
+        overflow-x: hidden !important;
+        width: 100% !important;
+        position: relative;
+    }
+
+    /*Contenedores principales (Ocupan todo el ancho)*/
+    .container, .main-content, main, section, .productos-container {
+        width: 100% !important;
+        max-width: 100% !important;
+        padding-left: 10px !important;
+        padding-right: 10px !important;
+        margin: 0 auto !important;
+        display: block !important;
+    }
+
+    /*Cabecera (Logo, buscador y menú en vertical)*/
+    header, .nav-container, .contenedor-banner {
+        flex-direction: column !important;
+        padding: 10px !important;
+        gap: 15px;
+    }
+
+    header a[href*="index"] {
+        margin-left: 0 !important;
+        width: 100%;
+        justify-content: center;
+    }
+
+    .search-bar, .buscador {
+        width: 100% !important;
+        margin: 0 !important;
+    }
+
+    /*Productos Destacados (Ofertas en una sola columna)*/
+    .destacados-container {
+        grid-template-columns: 1fr !important;
+        margin: 0 10px 30px 10px !important;
+        gap: 15px;
+        padding: 10px;
+    }
+
+    .card-destacada, .card-destacada a {
+        flex-direction: column !important;
+        align-items: center !important;
+        text-align: center;
+        width: auto !important;
+    }
+
+    .card-destacada img {
+        width: 130px !important;
+        height: 130px !important;
+        margin-right: 0 !important;
+        margin-bottom: 15px;
+    }
+
+    /*Cuadrícula de productos (2 columnas para que quepan bien)*/
+    .productos-grid {
+        display: grid !important;
+        grid-template-columns: 1fr 1fr !important;
+        gap: 10px !important;
+        padding: 5px !important;
+    }
+
+    .producto-card {
+        width: auto !important;
+        margin: 0 !important;
+    }
+
+    .producto-card img {
+        max-width: 100% !important;
+        height: auto !important;
+    }
+
+    /*Botones y Textos*/
+    .btn-añadir, .producto-card button {
+        height: 45px !important;
+        font-size: 14px !important;
+        width: 100% !important;
+        display: block;
+    }
+
+    h1 { font-size: 24px !important; }
+    h2 { font-size: 20px !important; margin-left: 15px !important; }
+}
+
+/*FOOTER*/
+footer {
+    background: #333;
+    color: white;
+    text-align: center;
+    padding: 30px;
+    margin-top: auto;
+}
+
+/*UNIFICACIÓN DE TIPOGRAFÍAS*/
+.producto-card h3 {
+    font-family: 'Roboto', sans-serif !important;
+    color: #000000 !important;
+    font-size: 18px !important;
+    font-weight: 700 !important;
+    text-decoration: none !important;
+}
+
+.producto-card p {
+    font-family: 'Roboto', sans-serif !important;
+    color: #000000 !important;
+    font-size: 14px !important;
+    text-decoration: none !important;
+}
+
+.producto-card strong {
+    font-family: 'Roboto', sans-serif !important;
+    color: #000000 !important;
+    font-size: 22px !important;
+    font-weight: 900 !important;
+    text-decoration: none !important;
+}
+
+.producto-card a,
+.card-destacada a {
+    color: #000000 !important;
+    text-decoration: none !important;
+}
+
+/*MICRO-INTERACCIONES Y FEEDBACK VISUAL*/
+/*efectos visuales al pasar el raton*/
+.producto-card {
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1) !important;
+}
+
+.producto-card:hover {
+    transform: translateY(-8px); /*la tarjeta sube un poco*/
+    box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+    border-color: var(--verde-mercadona) !important;
+}
+
+.card-destacada {
+    transition: all 0.3s ease !important;
+}
+
+.card-destacada:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+}
+/*efectos en los botones*/
+.btn-añadir {
+    transition: all 0.2s ease !important;
+}
+
+.btn-añadir:hover {
+    background-color: var(--verde-hover) !important;
+    transform: scale(1.05);
+    letter-spacing: 0.5px;
+}
+
+/*Interacción con el Asistente (Tomate)*/
+.tomate-cuerpo {
+    cursor: pointer;
+    transition: filter 0.3s ease !important;
+}
+
+.tomate-asistente:hover .tomate-cuerpo {
+    filter: brightness(1.1); /*El tomate se ilumina al pasar el ratón*/
+}
+
+.tomate-asistente:hover .globo-texto {
+    transform: scale(1.1) translateY(-5px); /*El mensaje se hace más grande*/
+    background-color: var(--verde-mercadona) !important;
+}
+
+.globo-texto {
+    transition: all 0.3s ease !important;
+}
+

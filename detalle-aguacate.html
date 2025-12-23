@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Aguacate Hass | Family</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <header><div class="logo">
+    <h1 class="logo-texto">FAMILY <span>SUPERMARKET</span></h1>
+</div><nav><a href="index.html">← Volver</a></nav></header>
+    <main>
+        <section class="contenedor-detalle">
+            <div class="caja-blanca-detalle">
+                <div class="imagen-producto"><img src="img/aguacate.jpg" alt="Aguacate"></div>
+                <div class="info-producto">
+                    <h1>Aguacate Hass Madurez Óptima</h1>
+                    <p class="valoracion">⭐ ⭐ ⭐ ⭐ ⭐ (120 opiniones)</p>
+                    <p class="disponibilidad">✅ En stock (Fresco del día)</p>
+                    <p class="precio" id="precio-dinamico">3.20€</p>
+                    <p class="descripcion">Aguacate de variedad Hass, seleccionado por su textura cremosa y sabor intenso. Rico en grasas saludables y perfecto para ensaladas o guacamole.</p>
+                    <div class="selector-cantidad">
+                        <label>Cantidad:</label>
+                        <select id="cantidad-prod" onchange="actualizarPrecio(3.20)">
+                            <option value="1">2 unidades</option>
+                            <option value="2">4 unidades</option>
+                        </select>
+                    </div>
+                    <button class="btn-añadir">Añadir al carro</button>
+                </div>
+            </div>
+        </section>
+    </main>
+    <script>
+        function actualizarPrecio(base) {
+            const cant = document.getElementById('cantidad-prod').value;
+            document.getElementById('precio-dinamico').innerText = (base * cant).toFixed(2) + "€";
+        }
+    </script>
+    <div class="asistente-contenedor">
+    <div class="tomate-asistente">
+        <div class="globo-texto">¡En su punto! Perfecto para un buen guacamole.🥑</div>
+        
+        <div class="tomate-cuerpo">
+            <div class="hojas">
+                <span class="hoja-1"></span>
+                <span class="hoja-2"></span>
+                <span class="hoja-3"></span>
+            </div>
+            <div class="cara">
+                <div class="ojos">
+                    <span class="ojo"></span>
+                    <span class="ojo"></span>
+                </div>
+                <div class="boca-tomate"></div>
+            </div>
+            <div class="brillo"></div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Agua Mineral | Family</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <header><div class="logo">
+    <h1 class="logo-texto">FAMILY <span>SUPERMARKET</span></h1>
+</div><nav><a href="index.html">← Volver</a></nav></header>
+    <main>
+        <section class="contenedor-detalle">
+            <div class="caja-blanca-detalle">
+                <div class="imagen-producto"><img src="img/agua.jpg" alt="Agua"></div>
+                <div class="info-producto">
+                    <h1>Agua Mineral Natural</h1>
+                    <p class="valoracion">⭐ ⭐ ⭐ ⭐ ⭐ (150 opiniones)</p>
+                    <p class="disponibilidad">✅ Disponible</p>
+                    <p class="precio" id="precio-dinamico">3.15€</p>
+                    <p class="descripcion">Agua mineral de mineralización débil, captada en manantial natural. Pack de 6 botellas de 1,5 litros cada una, ideal para el consumo diario familiar.</p>
+                    <div class="selector-cantidad">
+                        <label>Cantidad:</label>
+                        <select id="cantidad-prod" onchange="actualizarPrecio(3.15)">
+                            <option value="1">Pack x6</option>
+                            <option value="2">Pack x12</option>
+                        </select>
+                    </div>
+                    <button class="btn-añadir">Añadir al carro</button>
+                </div>
+            </div>
+        </section>
+    </main>
+    <script>
+        function actualizarPrecio(base) {
+            const cant = document.getElementById('cantidad-prod').value;
+            document.getElementById('precio-dinamico').innerText = (base * cant).toFixed(2) + "€";
+        }
+    </script>
+    <div class="asistente-contenedor">
+    <div class="tomate-asistente">
+        <div class="globo-texto">¡Hidrátate bien! Es lo más importante del día. 💧</div>
+        
+        <div class="tomate-cuerpo">
+            <div class="hojas">
+                <span class="hoja-1"></span>
+                <span class="hoja-2"></span>
+                <span class="hoja-3"></span>
+            </div>
+            <div class="cara">
+                <div class="ojos">
+                    <span class="ojo"></span>
+                    <span class="ojo"></span>
+                </div>
+                <div class="boca-tomate"></div>
+            </div>
+            <div class="brillo"></div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

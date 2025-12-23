@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Muslos de Pollo | Family</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <header><div class="logo">
+    <h1 class="logo-texto">FAMILY <span>SUPERMARKET</span></h1>
+</div><nav><a href="index.html">← Volver</a></nav></header>
+    <main>
+        <section class="contenedor-detalle">
+            <div class="caja-blanca-detalle">
+                <div class="imagen-producto"><img src="img/pollo.jpg" alt="Pollo"></div>
+                <div class="info-producto">
+                    <h1>Muslos de Pollo Selección</h1>
+                    <p class="valoracion">⭐ ⭐ ⭐ ⭐ ☆ (88 opiniones)</p>
+                    <p class="disponibilidad">✅ Producto Fresco</p>
+                    <p class="precio" id="precio-dinamico">6.40€</p>
+                    <p class="descripcion">Carne de pollo seleccionada por su ternura y frescura. Bandeja preparada y limpia, lista para asar o guisar. Origen nacional garantizado.</p>
+                    <div class="selector-cantidad">
+                        <label>Cantidad:</label>
+                        <select id="cantidad-prod" onchange="actualizarPrecio(6.40)">
+                            <option value="1">Bandeja 600g</option>
+                            <option value="2">Bandeja 1.2kg</option>
+                        </select>
+                    </div>
+                    <button class="btn-añadir">Añadir al carro</button>
+                </div>
+            </div>
+        </section>
+    </main>
+    <script>
+        function actualizarPrecio(base) {
+            const cant = document.getElementById('cantidad-prod').value;
+            document.getElementById('precio-dinamico').innerText = (base * cant).toFixed(2) + "€";
+        }
+    </script>
+    <div class="asistente-contenedor">
+    <div class="tomate-asistente">
+        <div class="globo-texto">¡Proteína de la mejor calidad para tus cenas! 🍗</div>
+        
+        <div class="tomate-cuerpo">
+            <div class="hojas">
+                <span class="hoja-1"></span>
+                <span class="hoja-2"></span>
+                <span class="hoja-3"></span>
+            </div>
+            <div class="cara">
+                <div class="ojos">
+                    <span class="ojo"></span>
+                    <span class="ojo"></span>
+                </div>
+                <div class="boca-tomate"></div>
+            </div>
+            <div class="brillo"></div>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

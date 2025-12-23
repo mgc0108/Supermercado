@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mi Carrito | Family Supermarket</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/styles.css">
+    <style>
+        /* Estilos específicos para la vista de carrito */
+        .carrito-seccion {
+            display: flex;
+            gap: 30px;
+            margin-top: 20px;
+        }
+        .tabla-carrito {
+            flex: 2;
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        th {
+            text-align: left;
+            border-bottom: 2px solid #eee;
+            padding-bottom: 10px;
+            color: #666;
+        }
+        td {
+            padding: 20px 0;
+            border-bottom: 1px solid #eee;
+        }
+        .prod-carrito {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        .prod-carrito img {
+            width: 60px;
+            height: 60px;
+            object-fit: contain;
+        }
+        .resumen-compra {
+            flex: 1;
+            background: white;
+            padding: 25px;
+            border-radius: 10px;
+            height: fit-content;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+            border-top: 5px solid var(--verde-mercadona);
+        }
+        .fila-resumen {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 15px;
+            font-size: 18px;
+        }
+        .total-negrita {
+            font-weight: bold;
+            font-size: 22px;
+            border-top: 2px solid #eee;
+            padding-top: 15px;
+            color: var(--verde-mercadona);
+        }
+        .btn-pagar {
+            width: 100%;
+            background: var(--verde-mercadona);
+            color: white;
+            border: none;
+            padding: 15px;
+            border-radius: 5px;
+            font-weight: bold;
+            font-size: 18px;
+            cursor: pointer;
+            margin-top: 20px;
+        }
+        @media (max-width: 850px) {
+            .carrito-seccion { flex-direction: column; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="logo">
+    <h1 class="logo-texto">FAMILY <span>SUPERMARKET</span></h1>
+</div>
+        <nav><a href="index.html">Seguir comprando</a></nav>
+    </header>
+
+    <main>
+        <h1 class="section-title">Tu Carrito de la Compra</h1>
+
+        <div class="carrito-seccion">
+            <div class="tabla-carrito">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Producto</th>
+                            <th>Cantidad</th>
+                            <th>Subtotal</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>
+                                <div class="prod-carrito">
+                                    <img src="img/aceite-oliva.jpg" alt="Aceite">
+                                    <div>
+                                        <strong>Aceite de Oliva Virgen Extra</strong>
+                                        <p style="font-size: 12px; color: #888;">Garrafa 5L</p>
+                                    </div>
+                                </div>
+                            </td>
+                            <td>1</td>
+                            <td>38,50€</td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="prod-carrito">
+                                    <img src="img/leche.jpg" alt="Leche">
+                                    <div>
+                                        <strong>Leche Entera UHT</strong>
+                                        <p style="font-size: 12px; color: #888;">Brik 1L</p>
+                                    </div>
+                                </div>
+                            </td>
+                            <td>6</td>
+                            <td>5,70€</td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="prod-carrito">
+                                    <img src="img/manzanas.jpg" alt="Manzanas">
+                                    <div>
+                                        <strong>Manzanas Royal Gala</strong>
+                                        <p style="font-size: 12px; color: #888;">Bolsa 1kg</p>
+                                    </div>
+                                </div>
+                            </td>
+                            <td>2</td>
+                            <td>5,98€</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="resumen-compra">
+                <h3>Resumen</h3>
+                <hr style="margin: 15px 0; border: 0; border-top: 1px solid #eee;">
+                <div class="fila-resumen">
+                    <span>Subtotal</span>
+                    <span>50,18€</span>
+                </div>
+                <div class="fila-resumen">
+                    <span>Envío</span>
+                    <span style="color: var(--verde-mercadona); font-weight: bold;">GRATIS</span>
+                </div>
+                <div class="fila-resumen total-negrita">
+                    <span>Total</span>
+                    <span>50,18€</span>
+                </div>
+                <button class="btn-tramitar" onclick="mostrarModalPersonalizado()">Tramitar Pedido</button>
+                <p style="font-size: 12px; color: #999; text-align: center; margin-top: 10px;">IVA incluido en todos los precios</p>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Family Supermarket - Pago 100% Seguro</p>
+    </footer>
+<script>
+    function finalizarCompra() {
+        alert("¡Gracias por tu compra en Family Supermarket!\n\nTu pedido ha sido procesado con éxito y llegará a tu casa en menos de 24 horas.");
+        // Opcional: Redirigir al inicio después de aceptar
+        window.location.href = "index.html";
+    }
+    function mostrarModalPersonalizado() {
+    // Muestra el modal en lugar del alert feo
+    document.getElementById("miModal").style.display = "block";
+}
+
+function cerrarYVolver() {
+    // Cierra y vuelve al inicio
+    window.location.href = "index.html";
+}
+</script>
+<div id="miModal" class="modal-personalizado">
+    <div class="modal-contenido">
+        <img src="img/tomatin.png" alt="Tomatín" style="height: 80px; margin-bottom: 15px;">
+        <h3>¡Pedido Confirmado!</h3>
+        <p>Gracias por confiar en <strong>Family Supermarket</strong>.</p>
+        <p>Tu compra llegará en menos de 24 horas.</p>
+        <button onclick="cerrarYVolver()" class="btn-cerrar">Aceptar</button>
+    </div>
+</div>
+<div class="asistente-contenedor">
+    <div class="tomate-asistente">
+        <div class="globo-texto">¡Todo se ve delicioso! ¿Pedimos ya? 🛒</div> 
+        
+        <div class="tomate-cuerpo">
+            <div class="hojas">
+                <span class="hoja-1"></span>
+                <span class="hoja-2"></span>
+                <span class="hoja-3"></span>
+            </div>
+            <div class="cara">
+                <div class="ojos">
+                    <span class="ojo"></span>
+                    <span class="ojo"></span>
+                </div>
+                <div class="boca-tomate"></div>
+            </div>
+            <div class="brillo"></div>
+        </div>
+    </div>
+</div>
+</body>
+</html>
